@@ -51,13 +51,12 @@ end
 def get_average_age_for_season(data, season)
   number_of_contestants = 0
   total_age_of_contestants = 0
-  data.each do | season, attributes|
-      attributes.each do |contest_attribute, contest_value |
+  data[season].each do |contest_attribute, contest_value |
         total_age_of_contestants += contest_attribute.values_at("age").join().to_i
         number_of_contestants += 1
-      end
+
   end
-  average_age_float = total_age_of_contestants.to_f / number_of_contestants.to_f 
-binding.pry
-  average_age_float.round
+  average_age_float = total_age_of_contestants.to_f / number_of_contestants.to_f
+
+  average_age_float.round(0)
 end
